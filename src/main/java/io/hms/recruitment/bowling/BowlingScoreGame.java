@@ -13,7 +13,14 @@ public class BowlingScoreGame {
 
     private static final boolean debug = false; // If true, print out the detail of each frame, for easier debugging
 
+    private static BowlingScoreGame instance = new BowlingScoreGame();
+
     public static void main(String[] allPinScores) {
+        int totalScore = instance.play(allPinScores);
+        System.exit(totalScore);
+    }
+
+    int play(String[] allPinScores) {
         int totalScore = 0;
 
         if (allPinScores.length > 0) {
@@ -22,6 +29,8 @@ public class BowlingScoreGame {
             toString(frames);
         }
         System.out.println("=> " + totalScore);
+
+        return totalScore;
     }
 
     private static void toString(List<Frame> frames) {
